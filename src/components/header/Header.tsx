@@ -6,7 +6,7 @@ import NavBar from "./navigation/NavBar"
 export default function Header() {
   return (
     <>
-      <header className="py-5">
+      <header className="sticky top-0 py-5">
         <Container>
           <nav className="flex justify-between items-center">
             <Logo />

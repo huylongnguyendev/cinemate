@@ -18,7 +18,7 @@ const beVNPro = Be_Vietnam_Pro({
 
 export const metadata: Metadata = {
   title: {
-    default: "CineMate | Khám phá vũ trụ điện ảnh",
+    default: "CineMate | Khám phá những bộ phim hot và chương trình độc đáo",
     template: "%s | CineMate"
   },
   description: "CineMate - Nền tảng quản lý và khám phá phim chuyên nghiệp. Cập nhật thông tin, trailer và thống kê điện ảnh cá nhân mỗi ngày.",
