@@ -4,6 +4,7 @@ import Link from "next/link"
 import Logo from "@/components/Logo"
 import { X } from "lucide-react"
 import MenuToggle from "@/components/toggles/MenuToggle"
+import NavItem from "./NavItem"
 
 export default function NavBar() {
   const data = navList
@@ -19,17 +20,14 @@ export default function NavBar() {
         </li>
         {
           data.map(item => (
-            <li
-              key={item.title}
-              className="px-2 py-1.5 rounded-md transitions hover:bg-muted hover:text-primary active:bg-muted active:text-primary"
-            >
+            <NavItem key={item.title}>
               <Link
                 href={item.url}
                 className="inline-flex md:justify-center items-center gap-1.5 size-full font-semibold"
               >
                 {item.title}
               </Link>
-            </li>
+            </NavItem>
           ))
         }
       </NavWrapper>

@@ -2,6 +2,7 @@
 import { MovieResponse } from "@/lib/types/movie.type"
 import MovieItem from "./items/MovieItem"
 import { movieService } from "@/lib/services/movie.service"
+import PaginationBar from "../PaginationBar"
 
 export interface MovieSearchParams {
   query?: string
@@ -17,14 +18,14 @@ export default async function MovieList({
   }) {
   const resultPatams = await searchParams
   const page = resultPatams?.page || "1"
-  const year = resultPatams?.year || new Date().getFullYear().toString()
+  const year = resultPatams?.year || ""
 
   const params = `page=${page}&primary_release_year=${year}`
   const data: MovieResponse = await movieService.getMovie(params)
 
   return (
     <>
-      <div>
+      <div className="space-y-8 py-4">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
           {
             data && data.results.length > 0 ? data.results.map((item, index: number) => (
@@ -32,6 +33,7 @@ export default async function MovieList({
             )) : (<div>Danh sách trống</div>)
           }
         </div>
+        <PaginationBar totalPage={data?.total_pages || 0} />
       </div>
     </>
   )
