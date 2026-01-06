@@ -117,6 +117,10 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
@@ -126,6 +130,50 @@
   }
 }
 
-.transitons {
+.transitions {
   @apply transition-all duration-300;
+}
+
+
+/* 1. Độ rộng & Độ cao */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* 2. Phần đường ray (Track) - Để trong suốt đúng chất Apple */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 3. Phần tay kéo (Thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  /* Màu xám trong suốt nhẹ */
+  border-radius: 20px;
+  /* Bo tròn tối đa */
+  border: 2px solid transparent;
+  /* Tạo khoảng cách */
+  background-clip: content-box;
+  /* Giúp thumb nhỏ lại và cách lề */
+  cursor: grabbing;
+}
+
+/* 4. Hiệu ứng khi hover hoặc đang kéo */
+::-webkit-scrollbar-thumb:hover,
+    ::-webkit-scrollbar-thumb:active {
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Đậm hơn một chút khi tương tác */
+}
+
+/* 5. Chế độ tối (Dark Mode) */
+@media (prefers-color-scheme:dark) {
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover,
+  ::-webkit-scrollbar-thumb:active {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
 }
