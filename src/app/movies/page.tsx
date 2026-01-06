@@ -6,7 +6,7 @@ import { Suspense } from "react"
 export default function page({ searchParams }: { searchParams: Promise<MovieSearchParams> }) {
   return (
     <>
-      <div className="relative">
+      <div className="relative space-y-0">
         <Suspense>
           <Filters />
           <Container>

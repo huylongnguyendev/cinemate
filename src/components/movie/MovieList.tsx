@@ -10,6 +10,7 @@ export interface MovieSearchParams {
   genre?: string
   year?: string
   sort_by?: string
+  with_origin_country?: string
 }
 
 
@@ -21,8 +22,9 @@ export default async function MovieList({
   const page = resultParams?.page || "1"
   const year = resultParams?.year || ""
   const sort = resultParams?.sort_by || ""
+  const country = resultParams?.with_origin_country || ""
 
-  const params = `page=${page}&primary_release_year=${year}&sort_by=${sort}`
+  const params = `page=${page}&primary_release_year=${year}&sort_by=${sort}&with_origin_country=${country}`
   const data: MovieResponse = await movieService.getMovie(params)
 
   return (

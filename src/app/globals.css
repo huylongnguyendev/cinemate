@@ -120,7 +120,7 @@
   html {
     scroll-behavior: smooth;
   }
-
+  
   * {
     @apply border-border outline-ring/50;
   }
@@ -176,4 +176,12 @@
   ::-webkit-scrollbar-thumb:active {
     background-color: rgba(255, 255, 255, 0.4);
   }
+}
+
+.mask-bottom {
+  background: radial-gradient(200% 180% at 50% 10%, var(--background) 40%, var(--primary) 100%);
+}
+
+.background-header-pos {
+  @apply absolute top-1/2 left-1/2 -translate-1/2 size-0 -z-10;
 }

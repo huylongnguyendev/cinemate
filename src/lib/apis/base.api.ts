@@ -1,5 +1,6 @@
 export const baseURL = process.env.NEXT_PUBLIC_API_URL || ""
 export const imgURL = process.env.NEXT_PUBLIC_IMG_URL || ""
+export const imgOriginalURL = process.env.NEXT_PUBLIC_IMG_LG_URL || ""
 export const token = process.env.TMDB_TOKEN || ""
 
 export function getOptions(method: string) {
