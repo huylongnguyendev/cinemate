@@ -1,8 +1,8 @@
 import { CarouselContent, CarouselItem } from "@/components/ui/carousel"
-import CompanyCarousel from "./CompanyCarousel"
 import { CompanyType } from "@/lib/types/movie.type"
 import Image from "next/image"
 import { imgURL } from "@/lib/apis/base.api"
+import AnimateCarousel from "@/components/carousels/AnimateCarousel"
 
 interface ItemOverviewProps {
   overview: string
@@ -21,7 +21,7 @@ export default function ItemOverview({
       </div>
       <div className="mt-8 space-y-4">
         <p className="font-semibold">Đơn vị sản xuất:</p>
-        <CompanyCarousel>
+        <AnimateCarousel loop delay>
           <CarouselContent>
             {
               companies.map(item => (
@@ -38,7 +38,7 @@ export default function ItemOverview({
               ))
             }
           </CarouselContent>
-        </CompanyCarousel>
+        </AnimateCarousel>
       </div>
     </>
   )

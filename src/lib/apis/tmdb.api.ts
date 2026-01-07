@@ -7,11 +7,6 @@ export const tmdbAPI = {
       if (!res.ok) return undefined
       return await res.json()
     },
-    getOneMovie: async (id: string) => {
-      const res = await fetch(`${baseURL}/movie/${id}?language=vi-VN`, getOptions("get"))
-      if (!res.ok) return undefined
-      return await res.json()
-    }
   },
   configurations: {
     getCountry: async () => {
@@ -19,5 +14,13 @@ export const tmdbAPI = {
       if (!res.ok) return undefined
       return await res.json()
     }
-  }
+  },
+  movie: {
+    get: async (id: string, topic?: string) => {
+      const topicURL = topic ? `/${topic}` : ""
+      const res = await fetch(`${baseURL}/movie/${id}${topicURL}?language=vi-VN`, getOptions("get"))
+      if (!res.ok) return undefined
+      return await res.json()
+    }
+  },
 }

@@ -9,7 +9,7 @@ export default function page({ searchParams }: { searchParams: Promise<MovieSear
       <div className="relative space-y-0">
         <Suspense>
           <Filters />
-          <Container className="md:mt-20">
+          <Container>
             <MovieList searchParams={searchParams} />
           </Container>
         </Suspense>
