@@ -1,6 +1,7 @@
 import Container from "../Container"
 import CountryFilter from "./sorts/CountryFilter"
 import DateFilter from "./sorts/DateFilter"
+import GenreFilter from "./sorts/GenreFilter"
 import SortAction from "./sorts/SortAction"
 
 export default function Filters() {
@@ -8,6 +9,7 @@ export default function Filters() {
     <>
       <div className="mt-20 md:sticky top-20 z-50 bg-background py-4 transitions">
         <Container className="grid grid-cols-1 sm:grid-cols-2 md:flex md:items-center justify-end-safe gap-2">
+          <GenreFilter />
           <CountryFilter />
           <DateFilter />
           <SortAction />

@@ -14,7 +14,7 @@ export default function MovieImage({
 }: MovieImageProps) {
   return (
     <>
-      <div className="relative w-full lg:w-1/3 h-150">
+      <div className="relative w-full lg:w-1/3 h-full">
         <div className="relative w-full md:w-2/3 h-114 top-1/2 md:left-8 -translate-y-1/2 rounded-md overflow-hidden">
           <Image
             src={imgURL + poster}

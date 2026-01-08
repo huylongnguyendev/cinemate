@@ -7,7 +7,7 @@ import PaginationBar from "../PaginationBar"
 export interface MovieSearchParams {
   query?: string
   page?: string
-  genre?: string
+  with_genre?: string
   year?: string
   sort_by?: string
   with_origin_country?: string
@@ -22,9 +22,10 @@ export default async function MovieList({
   const page = resultParams?.page || "1"
   const year = resultParams?.year || ""
   const sort = resultParams?.sort_by || ""
+  const genre = resultParams?.with_genre || ""
   const country = resultParams?.with_origin_country || ""
 
-  const params = `page=${page}&primary_release_year=${year}&sort_by=${sort}&with_origin_country=${country}`
+  const params = `page=${page}&primary_release_year=${year}&sort_by=${sort}&with_origin_country=${country}&with_genres=${genre}`
   const data: MovieResponse = await movieService.getMovie(params)
 
   return (

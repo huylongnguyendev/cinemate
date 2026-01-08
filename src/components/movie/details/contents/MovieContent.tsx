@@ -7,7 +7,7 @@ export default function MovieContent({ item }: {
 }) {
   return (
     <>
-      <div className="flex max-md:flex-col gap-10">
+      <div className="flex max-md:flex-col gap-10 h-150">
         <MovieImage
           poster={item.poster_path}
           backdrop={item.backdrop_path}

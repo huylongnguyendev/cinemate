@@ -25,4 +25,12 @@ export const tmdbAPI = {
       return await res.json()
     }
   },
+  genre: {
+    get: async () => {
+      const res = await fetch(`${baseURL}/genre/movie/list?language=vi-VN`, getOptions("get"))
+      if (!res.ok) return undefined
+
+      return await res.json()
+    }
+  }
 }

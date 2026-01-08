@@ -1,6 +1,6 @@
 "use client"
 
-import { Carousel } from "@/components/ui/carousel"
+import { Carousel, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { useRef } from "react"
 import Autoplay from "embla-carousel-autoplay"
 
@@ -17,8 +17,7 @@ export default function AnimateCarousel({
   loop = true,
   duration,
 }: AnimateCarouselProps) {
-  const delayValue = delay ? 3000 : undefined
-
+  const delayValue = delay ? 3000 : 0
   const plugin = useRef(
     Autoplay({ delay: delayValue, stopOnInteraction: true })
   )
@@ -28,11 +27,13 @@ export default function AnimateCarousel({
       <Carousel
         opts={{ loop, duration }}
         plugins={[plugin.current]}
-        className="w-full rounded-md overflow-hidden"
+        className="w-full overflow-hidden"
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
       >
         {children}
+        <CarouselPrevious />
+        <CarouselNext />
       </Carousel>
     </>
   )

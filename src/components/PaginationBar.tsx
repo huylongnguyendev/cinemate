@@ -72,7 +72,7 @@ export default function PaginationBar({ totalPage }: PaginationProps) {
           }
 
           <PaginationItem
-            className={currentPage === safePage ? "pointer-events-none opacity-50" : ""}
+            className={currentPage === safePage || safePage === 0 ? "pointer-events-none opacity-50" : ""}
           >
             <PaginationNext onClick={() => handleChangPage(currentPage + 1)} />
           </PaginationItem>

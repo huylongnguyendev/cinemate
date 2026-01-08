@@ -33,4 +33,12 @@ export const movieService = {
       return error
     }
   },
+  getRecomment: async (id: string, page?: string) => {
+    try {
+      const res = await tmdbAPI.movie.get(id, "recommendations", page)
+      return res
+    } catch (error) {
+      return error
+    }
+  },
 }

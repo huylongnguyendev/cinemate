@@ -8,7 +8,7 @@ export default function MovieInfo({ item }: {
 }) {
   return (
     <>
-      <div className="w-full md:w-2/3">
+      <div className="w-full md:w-2/3 h-full flex flex-col">
         <ItemTitle
           title={item.title || item.original_title}
           originalTitle={item.original_title}
