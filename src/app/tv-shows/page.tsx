@@ -4,9 +4,11 @@ import ShowList from "@/components/tv/ShowList"
 export default function page() {
   return (
     <>
-      <Container>
-        <ShowList />
-      </Container>
+      <div>
+        <Container>
+          <ShowList />
+        </Container>
+      </div>
     </>
   )
 }

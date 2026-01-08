@@ -9,7 +9,7 @@ export default function HeadBackground() {
   useEffect(() => {
     function handleScroll() {
       const posX = window.scrollY
-      setIsScroll(posX > 100)
+      setIsScroll(posX > 0)
     }
 
     document.addEventListener("scroll", handleScroll)

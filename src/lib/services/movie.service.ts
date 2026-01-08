@@ -9,9 +9,33 @@ export const movieService = {
       return error
     }
   },
-  getOneMovie: async (id: string) => {
+  getOneMovie: async (id: string, topic?: string) => {
     try {
-      const res = await tmdbAPI.movies.getOneMovie(id)
+      const res = await tmdbAPI.movie.get(id, topic)
+      return res
+    } catch (error) {
+      return error
+    }
+  },
+  getCredit: async (id: string) => {
+    try {
+      const res = await tmdbAPI.movie.get(id, "credits")
+      return res
+    } catch (error) {
+      return error
+    }
+  },
+  getReview: async (id: string, page?: string) => {
+    try {
+      const res = await tmdbAPI.movie.get(id, "reviews", page)
+      return res
+    } catch (error) {
+      return error
+    }
+  },
+  getRecomment: async (id: string, page?: string) => {
+    try {
+      const res = await tmdbAPI.movie.get(id, "recommendations", page)
       return res
     } catch (error) {
       return error
