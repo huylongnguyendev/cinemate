@@ -6,7 +6,7 @@ import Image from "next/image"
 import { imgURL } from "@/lib/apis/base.api"
 
 export default async function ActorCarousel({ id }: { id: string }) {
-  const data: CreditResponse | undefined = await movieService.getCredit(id, "credits")
+  const data: CreditResponse | undefined = await movieService.getCredit(id)
   if (!data) return
 
   return (

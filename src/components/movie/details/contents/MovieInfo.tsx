@@ -3,8 +3,9 @@ import ItemTitle from "./info/ItemTitle"
 import ItemOverview from "./info/ItemOverview"
 import ItemScore from "./info/ItemScore"
 import ItemActions from "./info/ItemActions"
-
-export default function MovieInfo({ item }: { item: IDetailItem }) {
+export default function MovieInfo({ item }: {
+  item: IDetailItem
+}) {
   return (
     <>
       <div className="w-full md:w-2/3">

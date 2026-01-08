@@ -16,9 +16,11 @@ export const tmdbAPI = {
     }
   },
   movie: {
-    get: async (id: string, topic?: string) => {
-      const topicURL = topic ? `/${topic}` : ""
-      const res = await fetch(`${baseURL}/movie/${id}${topicURL}?language=vi-VN`, getOptions("get"))
+    get: async (id: string, topic?: string, page?: string) => {
+      const topicSelected = topic ? `/${topic}` : ""
+      const language = topic === "reviews" ? "en-EN" : "vi-VN"
+      const pageSelected = page ? `&page=${page}` : ""
+      const res = await fetch(`${baseURL}/movie/${id}${topicSelected}?language=${language}${pageSelected}`, getOptions("get"))
       if (!res.ok) return undefined
       return await res.json()
     }

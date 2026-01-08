@@ -1,4 +1,4 @@
-export interface IActorItem {
+export interface ICastItem {
   adult: boolean
   gender: number
   id: number
@@ -12,8 +12,6 @@ export interface IActorItem {
   credit_id: string
   order: number
 }
-
-export type ActorType = IActorItem[]
 
 export interface ICrewItem {
   adult: boolean
@@ -24,16 +22,16 @@ export interface ICrewItem {
   original_name: string
   popularity: number
   profile_path: string
-  cast_id: number
-  character: string
   credit_id: string
-  order: number
+  department: string
+  job: string
 }
 
+export type CastType = ICastItem[]
 export type CrewType = ICrewItem[]
 
 export interface CreditResponse {
   id: number
-  cast: ActorType
+  cast: CastType
   crew: CrewType
 }

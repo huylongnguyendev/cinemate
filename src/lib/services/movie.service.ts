@@ -17,9 +17,17 @@ export const movieService = {
       return error
     }
   },
-  getCredit: async (id: string, topic?: string) => {
+  getCredit: async (id: string) => {
     try {
-      const res = await tmdbAPI.movie.get(id, topic)
+      const res = await tmdbAPI.movie.get(id, "credits")
+      return res
+    } catch (error) {
+      return error
+    }
+  },
+  getReview: async (id: string, page?: string) => {
+    try {
+      const res = await tmdbAPI.movie.get(id, "reviews", page)
       return res
     } catch (error) {
       return error
