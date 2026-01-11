@@ -1,3 +1,5 @@
+import AnimateCarousel from "@/components/carousels/AnimateCarousel"
+import { CarouselItem } from "@/components/ui/carousel"
 import { smallImgURL } from "@/lib/apis/base.api"
 import { IMovieDetailItem } from "@/lib/types/db/movie/detail.type"
 import { cn, setColor } from "@/lib/utils"
@@ -8,23 +10,23 @@ export default function DetailTop({ item }: { item: IMovieDetailItem }) {
 
   return (
     <>
-      <div className="w-full md:w-1/3 h-120 sm:h-150">
-        <div className="relative w-full lg:w-2/3 h-120 sm:h-150 lg:h-100">
+      <div className="w-full md:w-1/3 h-120 sm:h-130 p-4">
+        <div className="relative w-full lg:w-2/3 h-120 sm:h-100 lg:h-100 top-1/2 left-1/2 -translate-1/2">
           <Image
             src={smallImgURL + item.poster_path}
             alt={item.title || item.original_title}
             fill
             priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 25vw"
             className="object-cover rounded-md"
           />
         </div>
       </div>
-      <div className="w-full md:w-2/3">
+      <div className="w-full md:w-2/3 p-4">
         <div className="font-semibold">
           <h1 className="text-lg">{item.title || item.original_title}</h1>
           <p className="text-muted-foreground">{item.original_title}</p>
         </div>
-
         <div className="mt-8 space-y-1 flex flex-col">
           <div className="flex items-center gap-1">
             <p className="font-semibold">Điểm:</p>
@@ -44,7 +46,33 @@ export default function DetailTop({ item }: { item: IMovieDetailItem }) {
               }
             </div>
           </div>
-
+          <div className="flex items-center gap-1">
+            <p className="font-semibold">Ngôn ngữ:</p>
+            {
+              item.spoken_languages.map((lang, index) => (
+                <span key={lang.iso_639_1} className="text-muted-foreground">{lang.name}{index < item.spoken_languages.length - 1 && ", "}</span>
+              ))
+            }
+          </div>
+          <div className="space-y-0.5 my-8">
+            <p className="font-semibold">Nội dung:</p>
+            <p className="text-muted-foreground text-balance">{item.overview}</p>
+          </div>
+          <div className="space-y-0.5">
+            <p className="font-semibold">Sản xuất:</p>
+            <AnimateCarousel delay={0} loop duration={3000} >
+              {
+                item.production_companies.map((item) => (
+                  <CarouselItem
+                    key={item.id}
+                    className="md:basis-1/2 lg:basis-1/3 p-4"
+                  >
+                    {item.name}
+                  </CarouselItem>
+                ))
+              }
+            </AnimateCarousel>
+          </div>
         </div>
       </div>
     </>
