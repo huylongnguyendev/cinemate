@@ -1,14 +1,17 @@
 import Toast from "@/components/common/Toast"
 import { movieService } from "@/lib/data/db/movie.service"
-import { IParams } from "@/lib/types/params.type"
+import { IParams, ISearchParams } from "@/lib/types/params.type"
 import { notFound } from "next/navigation"
 import DetailTop from "./DetailTop"
 import Image from "next/image"
 import { largeImgURL } from "@/lib/apis/base.api"
 import BreadcrumbBar from "@/components/common/BreadcrumbBar"
 import JobsListCarousel from "@/components/jobs/JobsListCarousel"
+import ReviewList from "@/components/reviews/movie/ReviewList"
 
-export default async function MovieDetails({ params }: IParams) {
+export default async function MovieDetails({
+  params,
+  searchParams }: IParams & { searchParams: ISearchParams }) {
   const { id } = await params
 
   const data = await movieService.getOne("movie", id)
@@ -35,6 +38,7 @@ export default async function MovieDetails({ params }: IParams) {
         <DetailTop item={data.data} />
       </div>
       <JobsListCarousel id={data.data.id} />
+      <ReviewList id={data.data.id} searchParams={searchParams} />
     </>
   )
 }

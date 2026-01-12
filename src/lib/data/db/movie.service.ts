@@ -2,6 +2,7 @@ import { tmdb } from "@/lib/apis/tmdb.api"
 import { IMovieResponse } from "../../types/db/movie/movie.type"
 import { IMovieDetailItem } from "@/lib/types/db/movie/detail.type"
 import { ICreditResponse } from "@/lib/types/db/movie/credit.type"
+import { IReviewResponse } from "@/lib/types/db/review.type"
 
 export const movieService = {
   getMany: async (type: "movie" | "tv", params?: string) => {
@@ -16,5 +17,9 @@ export const movieService = {
   getCredit: async (id: string) => {
     const res: { data: ICreditResponse, status: number } | number = await tmdb.details.getCredit( id)
     return res
-  }
+  },
+  getReview: async (params: string, id: string) => {
+    const res: { data: IReviewResponse, status: number } | number = await tmdb.details.getReview(params, id)
+    return res
+  },
 }

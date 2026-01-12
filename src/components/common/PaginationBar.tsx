@@ -4,7 +4,13 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationNext, PaginationPrevious } from "../ui/pagination"
 import { Button } from "../ui/button"
 
-export default function PaginationBar({ totalPage }: { totalPage: number }) {
+export default function PaginationBar({
+  totalPage,
+  scroll = true
+}: {
+  totalPage: number
+  scroll?: boolean
+}) {
   const setTotal = totalPage > 500 ? 500 : totalPage
 
   const router = useRouter()
@@ -15,7 +21,7 @@ export default function PaginationBar({ totalPage }: { totalPage: number }) {
   function handleChangePage(newPage: number) {
     const params = new URLSearchParams(searchParams.toString())
     params.set("page", newPage.toString())
-    router.push(`${pathName}?${params}`, { scroll: true })
+    router.push(`${pathName}?${params}`, { scroll })
   }
 
   function setPageList() {
@@ -62,7 +68,7 @@ export default function PaginationBar({ totalPage }: { totalPage: number }) {
             ))
           }
 
-          <PaginationItem className={currentPage === setTotal ? "opacity-50 pointer-events-none" : ""}>
+          <PaginationItem className={currentPage === setTotal || !setTotal ? "opacity-50 pointer-events-none" : ""}>
             <PaginationNext
               onClick={() => handleChangePage(currentPage + 1)}
             />

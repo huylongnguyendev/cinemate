@@ -1,14 +1,4 @@
-export interface ICommonJobItem {
-  gender: number
-  id: number
-  known_for_department: string
-  name: string
-  original_name: string
-  popularity: number
-  profile_path: string
-  credit_id: string
-
-}
+import { ICommonJobItem } from "../common.type"
 
 export interface ICastItem extends ICommonJobItem {
   cast_id: number

@@ -16,7 +16,7 @@ export default function BreadcrumbBar({ id, name }: BreadcrumbBarProps) {
 
   return (
     <>
-      <Breadcrumb>
+      <Breadcrumb className="sticky top-18 bg-background z-50">
         <BreadcrumbList className="flex items-center h-8 gap-2 rounded-md border px-3 text-sm">
           <BreadcrumbItem>
             <BreadcrumbLink href="/">
