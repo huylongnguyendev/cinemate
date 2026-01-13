@@ -50,10 +50,10 @@ export interface IShowDetailItem extends ICommonDetail {
   in_production: boolean
   languages: string[]
   last_air_date: string
-  last_episode_to_air: IEpisodeItem[]
+  last_episode_to_air: IEpisodeItem
 
   name: string
-  next_episode_to_air: IEpisodeItem[]
+  next_episode_to_air: IEpisodeItem
   networks: INetworkItem[]
   number_of_episodes: number
   number_of_seasons: number

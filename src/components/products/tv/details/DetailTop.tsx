@@ -44,6 +44,21 @@ export default function DetailTop({ item }: { item: IShowDetailItem }) {
               {item.in_production ? "Đang chiếu" : "Hoàn thành"}
             </p>
           </div>
+          <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1">
+              <p className="font-semibold">Số mùa:</p>
+              <p className="text-muted-foreground">
+                {item.last_episode_to_air.season_number}/{item.number_of_seasons}
+              </p>
+            </div>
+            <p className="font-semibold">-</p>
+            <div className="flex items-center gap-1">
+              <p className="font-semibold">Số tập:</p>
+              <p className="text-muted-foreground">
+                {item.last_episode_to_air.episode_number}/{item.seasons[item.seasons.length - 1].episode_count}
+              </p>
+            </div>
+          </div>
           <div className="flex md:items-baseline-last gap-0.5">
             <p className="font-semibold">Thể loại:</p>
             <div className="text-muted-foreground">
