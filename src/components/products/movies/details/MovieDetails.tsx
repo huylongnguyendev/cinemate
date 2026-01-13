@@ -8,6 +8,7 @@ import { largeImgURL } from "@/lib/apis/base.api"
 import BreadcrumbBar from "@/components/common/BreadcrumbBar"
 import JobsListCarousel from "@/components/jobs/JobsListCarousel"
 import ReviewList from "@/components/reviews/movie/ReviewList"
+import MovieRecommentCarousel from "@/components/recomment/movie/MovieRecommentCarousel"
 
 export default async function MovieDetails({
   params,
@@ -39,6 +40,7 @@ export default async function MovieDetails({
       </div>
       <JobsListCarousel id={data.data.id} />
       <ReviewList id={data.data.id} searchParams={searchParams} />
+      <MovieRecommentCarousel id={data.data.id} />
     </>
   )
 }

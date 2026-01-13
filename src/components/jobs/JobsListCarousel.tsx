@@ -11,23 +11,36 @@ export default async function JobsListCarousel({ id }: { id: number }) {
     <>
       <div className="space-y-10">
         <Heading>Diễn viên</Heading>
-        <StaticCarousel>
-          {
-            typeof data !== "number" && data.data.cast.length > 0 && data.data.cast.map(item => (
-              <CastItem key={item.cast_id} item={item} />
-            ))
-          }
-        </StaticCarousel>
+        {typeof data !== "number" && data.data.cast.length > 0
+          && (
+            <StaticCarousel>
+              {
+                data.data.cast.map(item => (
+                  <CastItem key={item.cast_id} item={item} />
+                ))
+              }
+            </StaticCarousel>
+          ) || (
+            <div className="p-4 text-accent-foreground text-center font-semibold w-full">Không có thông tin</div>
+          )
+
+        }
       </div>
       <div className="space-y-10">
         <Heading>Crew</Heading>
-        <StaticCarousel>
-          {
-            typeof data !== "number" && data.data.crew.length > 0 && data.data.crew.map(item => (
-              <CrewItem key={item.credit_id} item={item} />
-            ))
-          }
-        </StaticCarousel>
+        {typeof data !== "number" && data.data.crew.length > 0
+          && (
+            <StaticCarousel>
+              {
+                data.data.crew.map(item => (
+                  <CrewItem key={item.credit_id} item={item} />
+                ))
+              }
+            </StaticCarousel>
+          ) || (
+            <div className="p-4 text-accent-foreground text-center font-semibold w-full">Không có thông tin</div>
+          )
+        }
       </div>
     </>
   )

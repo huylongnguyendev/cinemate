@@ -17,4 +17,8 @@ export const showService = {
     const res: { data: IReviewResponse, status: number } | number = await tmdb.details.getReview("tv", params, id)
     return res
   },
+  getRecomment: async (id: string) => {
+    const res: { data: IShowResponse, status: number } | number = await tmdb.details.getRecomment("tv", id)
+    return res
+  }
 }

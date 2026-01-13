@@ -4,6 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { ISearchParams } from "@/lib/types/params.type"
 import { Suspense } from "react"
 
+
 export default function page({ searchParams }: { searchParams: Promise<ISearchParams> }) {
   return (
     <>

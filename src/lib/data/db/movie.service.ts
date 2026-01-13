@@ -15,11 +15,15 @@ export const movieService = {
     return res
   },
   getCredit: async (id: string) => {
-    const res: { data: ICreditResponse, status: number } | number = await tmdb.details.getCredit( id)
+    const res: { data: ICreditResponse, status: number } | number = await tmdb.details.getCredit(id)
     return res
   },
   getReview: async (params: string, id: string) => {
-    const res: { data: IReviewResponse, status: number } | number = await tmdb.details.getReview("movie",params, id)
+    const res: { data: IReviewResponse, status: number } | number = await tmdb.details.getReview("movie", params, id)
+    return res
+  },
+  getRecomment: async (id: string) => {
+    const res: { data: IMovieResponse, status: number } | number = await tmdb.details.getRecomment("movie", id)
     return res
   },
 }

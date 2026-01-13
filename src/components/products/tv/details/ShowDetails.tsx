@@ -8,6 +8,7 @@ import { IParams, ISearchParams } from "@/lib/types/params.type"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import DetailTop from "./DetailTop"
+import ShowRecommentCarousel from "@/components/recomment/tv/ShowRecommentCarousel"
 
 export default async function ShowDetails({
   params,
@@ -41,6 +42,7 @@ export default async function ShowDetails({
       </div>
       <JobsListCarousel id={data.data.id} />
       <ReviewList id={data.data.id} searchParams={searchParams} />
+      <ShowRecommentCarousel id={data.data.id} />
     </>
   )
 }

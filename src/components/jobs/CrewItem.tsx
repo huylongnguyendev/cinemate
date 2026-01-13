@@ -13,6 +13,7 @@ export default function CrewItem({ item }: { item: ICrewItem }) {
               src={smallImgURL + item.profile_path}
               alt={item.name || item.original_name}
               fill
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, (max-width: 1280px) 20vw, 16vw"
               className="object-cover rounded-md"
             />
           </div>

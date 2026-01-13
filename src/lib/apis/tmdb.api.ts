@@ -47,6 +47,18 @@ export const tmdb = {
         data,
         status: res.status
       }
+    },
+    getRecomment: async (type: "movie" | "tv", id: string) => {
+      const res = await fetch(`${baseURL}${type}/${id}/recommendations?language=vi-VN`, getApiOptions("GET"))
+
+      if (!res.ok) return res.status
+
+      const data = await res.json()
+      return {
+        data,
+        status: res.status
+      }
     }
   },
+
 }
