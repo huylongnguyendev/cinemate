@@ -60,5 +60,8 @@ export const tmdb = {
       }
     }
   },
-
+  video: async (type: "movie" | "tv", id: string) => {
+    const res = await fetch(`${baseURL}${type}/${id}/videos?language=en-US`, getApiOptions("GET"))
+    return await res.json()
+  }
 }

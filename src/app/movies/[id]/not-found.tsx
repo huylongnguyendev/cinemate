@@ -4,19 +4,19 @@ import Link from "next/link"
 export default function NotFound() {
   return (
     <>
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center text-foreground px-4">
+      <div className="h-[calc(100dvh-72px)] bg-background flex flex-col items-center justify-center text-foreground px-4">
         {/* Hiệu ứng đốm sáng mờ ảo phía sau (Blur) */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 h-75 bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div className="relative text-center">
           {/* Số 404 lớn với hiệu ứng đổ bóng */}
-          <h1 className="text-[150px] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-linear-to-b from-foreground to-foreground/20 select-none">
+          <h1 className="text-[100px] md:text-[150px] font-black leading-none tracking-tighter text-transparent bg-clip-text bg-linear-to-b from-foreground to-foreground/20 select-none">
             404
           </h1>
 
-          <div className="flex items-center justify-center gap-2 mb-6 -mt-4">
+          <div className="flex max-md:flex-col items-center justify-center gap-2 mb-6 mt-4">
             <Film className="w-8 h-8 text-primary-foreground" />
-            <span className="text-xl font-medium tracking-widest uppercase">{`Trang này đã bị "cắt" khỏi kịch bản`}</span>
+            <span className="text-lg md:text-xl font-medium tracking-widest uppercase">{`Trang này đã bị "cắt" khỏi kịch bản`}</span>
           </div>
 
           <p className="text-muted-foreground max-w-md mx-auto mb-10 text-lg">

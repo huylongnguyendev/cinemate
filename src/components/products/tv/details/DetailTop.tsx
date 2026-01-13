@@ -4,6 +4,7 @@ import { smallImgURL } from "@/lib/apis/base.api"
 import { IShowDetailItem } from "@/lib/types/db/tv/detail.type"
 import { cn, setColor } from "@/lib/utils"
 import Image from "next/image"
+import DetailAction from "../../actions/DetailAction"
 
 export default function DetailTop({ item }: { item: IShowDetailItem }) {
   const color = setColor(item.vote_average)
@@ -77,6 +78,7 @@ export default function DetailTop({ item }: { item: IShowDetailItem }) {
               ))
             }
           </div>
+          <DetailAction />
           <div className="space-y-0.5 my-8">
             <p className="font-semibold">Nội dung:</p>
             <p className="text-muted-foreground text-balance">{item.overview}</p>
