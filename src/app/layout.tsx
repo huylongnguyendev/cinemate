@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider"
 import Header from "@/components/header/Header"
 import NextTopLoader from "nextjs-toploader"
 import { Toaster } from "sonner"
+import SearchLayout from "@/components/header/searchs/SearchLayout"
+import { Suspense } from "react"
 
 const bebasNeue = Bebas_Neue({
   variable: "--font-bebas-neue",
@@ -59,8 +61,11 @@ export default function RootLayout({
             shadow="0 0 10px #22c55e,0 0 5px #22c55e"
           />
           <Header />
-          <main className="mt-18">
+          <main className="relative mt-18">
             {children}
+            <Suspense>
+              <SearchLayout />
+            </Suspense>
           </main>
           <Toaster richColors closeButton />
         </ThemeProvider>
