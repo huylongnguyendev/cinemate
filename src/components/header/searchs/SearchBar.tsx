@@ -12,6 +12,7 @@ import { useCallback, useEffect } from "react"
 export default function SearchBar() {
   const isOpenSearch = useAppStore((state) => state.isOpenSearch)
   const setIsOpenSearch = useAppStore((state) => state.setIsOpenSearch)
+  const setCloseSearch = useAppStore((state) => state.setCloseSearch)
   const query = useAppStore((state) => state.query)
   const setQuery = useAppStore((state) => state.setQuery)
 
@@ -26,13 +27,14 @@ export default function SearchBar() {
       params.set("query", value)
     else {
       params.delete("query")
-      setIsOpenSearch()
+      setCloseSearch()
     }
     const newUrl = `${pathName}?${params.toString()}`
     window.history.replaceState(null, "", newUrl)
-  }, [searchParams, pathName, setIsOpenSearch])
+  }, [searchParams, pathName, setCloseSearch])
 
   useEffect(() => {
+    console.log("test-----------------")
     const currentUrlQuery = new URLSearchParams(window.location.search).get("query") || ""
     if (debounceQuery !== currentUrlQuery)
       handleSearch(debounceQuery)

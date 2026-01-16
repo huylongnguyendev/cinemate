@@ -7,6 +7,7 @@ export interface SearchState {
 
   setIsOpenSearch: () => void
   setQuery: (value: string) => void
+  setCloseSearch: () => void
 }
 
 export const searchSlice: StateCreator<SearchState> = (set) => ({
@@ -15,4 +16,5 @@ export const searchSlice: StateCreator<SearchState> = (set) => ({
 
   setIsOpenSearch: () => set((state) => ({ isOpenSearch: !state.isOpenSearch })),
   setQuery: (value: string) => set(() => ({ query: value })),
+  setCloseSearch: () => set(() => ({ isOpenSearch: false })),
 })

@@ -14,7 +14,7 @@ import SearchItem from "./SearchItem"
 
 export default function SearchLayout() {
   const isOpenSearch = useAppStore((state) => state.isOpenSearch)
-  const setIsOpenSearch = useAppStore((state) => state.setIsOpenSearch)
+  const setCloseSearch = useAppStore((state) => state.setCloseSearch)
   const setQuery = useAppStore((state) => state.setQuery)
 
   const [result, setResult] = useState<ResultSearchType[] | []>([])
@@ -51,12 +51,12 @@ export default function SearchLayout() {
             variant="outline"
             size="icon"
             onClick={() => {
-              setIsOpenSearch()
               setQuery("")
+              setCloseSearch()
             }}
             className="flex ms-auto"
           >
-            <X className="text-destructive"/>
+            <X className="text-destructive" />
           </Button>
           {
             result.length === 0 ?
@@ -65,12 +65,9 @@ export default function SearchLayout() {
               </p> :
               <ul className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 py-4">
                 {
-                  result.map(item => {
-                    
-                    return (
-                      <SearchItem key={item.media_type + item.id} item={item} />
-                    )
-                  })
+                  result.map(item => (
+                    <SearchItem key={item.media_type + item.id} item={item} />
+                  ))
                 }
               </ul>
           }
