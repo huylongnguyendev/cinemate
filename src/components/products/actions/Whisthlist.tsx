@@ -6,6 +6,7 @@ import { IMovieDetailItem } from "@/lib/types/db/movie/detail.type"
 import { IShowDetailItem } from "@/lib/types/db/tv/detail.type"
 import { Heart } from "lucide-react"
 import { useState } from "react"
+import { toast } from "sonner"
 
 export default function Whisthlist({ item }: { item: IMovieDetailItem | IShowDetailItem }) {
   const [list, setList] = useState<(IMovieDetailItem | IShowDetailItem)[]>(() => {
@@ -36,6 +37,7 @@ export default function Whisthlist({ item }: { item: IMovieDetailItem | IShowDet
     setList(newList)
     const value = JSON.stringify(newList)
     localStorage.setItem("list", value)
+    toast.success("Đã thêm vào danh sách yêu thích")
   }
 
   return (

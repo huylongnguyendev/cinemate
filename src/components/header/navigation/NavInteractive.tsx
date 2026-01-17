@@ -4,7 +4,7 @@ import { AlignRight, SearchIcon } from "lucide-react"
 import SearchBar from "../searchs/SearchBar"
 import { Suspense } from "react"
 import { Button } from "@/components/ui/button"
-import NavWhishlist from "./NavWhishlist"
+// import NavWhishlist from "./NavWhishlist"
 
 export default function NavInteractive() {
   return (
@@ -21,7 +21,7 @@ export default function NavInteractive() {
         }>
           <SearchBar />
         </Suspense>
-        <NavWhishlist />
+        {/* <NavWhishlist /> */}
         <ModeToggle />
         <MenuToggle>
           <AlignRight />
