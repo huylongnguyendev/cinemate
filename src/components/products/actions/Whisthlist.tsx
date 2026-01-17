@@ -30,14 +30,15 @@ export default function Whisthlist({ item }: { item: IMovieDetailItem | IShowDet
     if (!isExist) {
       newList = [...list, movie]
       setIsActive(true)
+      toast.success("Đã thêm vào danh sách yêu thích")
     } else {
       newList = list.filter(item => item?.id !== movie.id)
       setIsActive(false)
+      toast.success("Đã xóa khỏi danh sách yêu thích")
     }
     setList(newList)
     const value = JSON.stringify(newList)
     localStorage.setItem("list", value)
-    toast.success("Đã thêm vào danh sách yêu thích")
   }
 
   return (
