@@ -42,7 +42,7 @@ export default function PaginationBar({
 
   return (
     <>
-      <Pagination>
+      <Pagination className="mt-6 py-6">
         <PaginationContent>
           <PaginationItem className={currentPage === 1 ? "opacity-50 pointer-events-none" : ""}>
             <PaginationPrevious
